@@ -9,7 +9,7 @@
         {% load static %}
         <link rel="stylesheet" href="{% static 'home.css' %}">
     </head>
-    <body style="background-color: #454b51;">
+    <body style="background-color: #485043;">
     <!-- <body> -->
         <div class="fluid-container">
             <!-- navbar -->
@@ -119,7 +119,7 @@
                 </div>
             </section>
             <!-- previous projects slider -->
-            <div class="container text-center my-3">
+            <div class="fluid-container text-center my-3 white-bg">
                 <h3>Previous porjects we have worked on</h3>
                 <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
                     <div class="carousel-inner w-100" role="listbox">
@@ -145,31 +145,41 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-            
-                <h4>Advances all 4 slides each time</h4>
             </div>
             <!-- did this by mistake but its basically just like a row of squares that look like cards half way off the bottom the the screen
                 we could add some hover animation to it that gives them more height. This feature could be used to select the random project for the week
                 have ppl log in and say they're present and send their name. for every person there, make a card-->
             <div class="container-fluid">
                 <h2>Projects</h2>
-                <div class="d-flex flex-nowrap">
-                    <div class="card card-body">Card</div>
-                    <div class="card card-body">Card</div>
-                    <div class="card card-body">Card</div>
-                    <div class="card card-body">Card</div>
-                    <div class="card card-body">Card</div>
-                    <div class="card card-body">Card</div>
-                    <div class="card card-body">Card</div>
-                    <div class="card card-body">Card</div>
-                    <div class="card card-body">Card</div>
-                    <div class="card card-body">Card</div>
-                    <div class="card card-body">Card</div>
-                    <div class="card card-body">Card</div>
-                    <div class="card card-body">Card</div>
-                    <div class="card card-body">Card</div>
-                </div>
-            </div>
+                <div class="d-flex flex-nowrap selectable-cards" >
+                    <!-- this is one selectable card with a slide up effect -->
+                    <div class="card card-body select-card">
+                        <div class="overlay">
+                            <div class="text"><a href="#"><img src="{% static 'img/cardBackground.jpg' %}" alt=" snak edesign"></a></div>
+                        </div>
+                    </div>
+                    <!-- end of one selecatbale card -->
+                    <div class="card card-body select-card">
+                        <div class="overlay">
+                            <div class="text">Hello World</div>
+                        </div>
+                    </div>
+                    <div class="card card-body select-card">
+                        <div class="overlay">
+                            <div class="text">Hello World</div>
+                        </div>
+                    </div>
+                    <div class="card card-body select-card">
+                        <div class="overlay">
+                            <div class="text">Hello World</div>
+                        </div>
+                    </div>
+                    <div class="card card-body select-card">
+                        <div class="overlay">
+                            <div class="text">Hello World</div>
+                        </div>
+                    </div> 
+                </div> 
             <!-- end card section -->
         </div>    
         <!-- bootstrap scripts -->
