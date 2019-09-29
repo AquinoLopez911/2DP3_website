@@ -1,0 +1,37 @@
+.white-bg {
+    background-color: #fff;
+}
+.jumbotron {
+    background-image: url('img/cartoonCode.jpg');
+    background-size: cover;
+    margin-bottom: 0;
+}
+.jumbotron h1{
+    font-weight: 200;
+    font-size: 120px;
+    color: white;
+    
+}
+.jumbotron p {
+    color: whitesmoke ;
+    font-size: 25px;
+}
+.vertical-center {
+    display: flex;
+    text-align: center;
+}
+
+.about-me {
+    margin-top: -40px;
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    /* needs better font */
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+} 
+
+.about-me h1, p, h2{
+    padding: 20px;
+    /* needs better font */
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+} 
