@@ -7,7 +7,7 @@
         <title>2DP3</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         {% load static %}
-        <link rel="stylesheet" href="{% static 'home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
     </head>
     <body style="background-color: #485043;">
     <!-- <body> -->
@@ -35,7 +35,11 @@
                         <a class="dropdown-item" href="#">Organizer 1</a>
                         <a class="dropdown-item" href="#">Organizer 1</a>
                     </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="/logout">logout</a>
+                        </li>
                     </ul>
+                    
                 </div>
             </nav>
             <!-- main content  -->
@@ -54,12 +58,12 @@
                 <div class="fluid-container about-me">
                     <h1>About Us</h1>
                     <div class="col-lg-5 mx-auto">
-                        <p>
+                        <h3>
                             this is an open source group that invites people that code in python to come out, network and just
                             have a good time collaboration with others. We welcome all level excperienced coders. This group 
                             meets up every __ days to work on projects. A party is hosted by us as well, a week after every 
                             project to give feed back on the previous week. 
-                        </p>
+                        </h3>
                     </div>
                 </div>
                 <!-- organizers info -->
@@ -124,16 +128,16 @@
                 <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
                     <div class="carousel-inner w-100" role="listbox">
                         <div class="carousel-item row no-gutters active">
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/222/fff?text=1"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/444?text=2"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/888?text=3"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/111/fff?text=4"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/333/fff?text=project 1"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/333?text=project 2"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/333?text=project 3"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/333/fff?text=project 4"></div>
                         </div>
                         <div class="carousel-item row no-gutters">
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280?text=5"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/555?text=6"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/333/fff?text=7"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/bbb?text=8"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280?text=project 5"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/555?text=project 6"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/333/fff?text=project 7"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/bbb?text=project 8"></div>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
@@ -149,38 +153,21 @@
             <!-- did this by mistake but its basically just like a row of squares that look like cards half way off the bottom the the screen
                 we could add some hover animation to it that gives them more height. This feature could be used to select the random project for the week
                 have ppl log in and say they're present and send their name. for every person there, make a card-->
-            <div class="container-fluid">
-                <h2>Projects</h2>
+            <div class="container-fluid text-center" >
+                <h2 id="select-card-label"> select a random Project</h2>
+                <!-- no more than 4 cards on screen at once untill i find a way to give the cards specific heights for each window size  -->
                 <div class="d-flex flex-nowrap selectable-cards" >
                     <!-- this is one selectable card with a slide up effect -->
+                    {% for card in cards %}
                     <div class="card card-body select-card">
-                        <div class="overlay">
-                            <div class="text"><a href="#"><img src="{% static 'img/cardBackground.jpg' %}" alt=" snak edesign"></a></div>
+                            <div class="overlay">
+                                <div class="text">
+                                    <a class="card-img" href="/projects/{{card.id}}"><img src="{% static 'img/cardBackgroud.jpg' %}" alt=" snak edesign"></a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <!-- end of one selecatbale card -->
-                    <div class="card card-body select-card">
-                        <div class="overlay">
-                            <div class="text">Hello World</div>
-                        </div>
-                    </div>
-                    <div class="card card-body select-card">
-                        <div class="overlay">
-                            <div class="text">Hello World</div>
-                        </div>
-                    </div>
-                    <div class="card card-body select-card">
-                        <div class="overlay">
-                            <div class="text">Hello World</div>
-                        </div>
-                    </div>
-                    <div class="card card-body select-card">
-                        <div class="overlay">
-                            <div class="text">Hello World</div>
-                        </div>
-                    </div> 
-                </div> 
-            <!-- end card section -->
+                    {% endfor %}
+            <end card section -->
         </div>    
         <!-- bootstrap scripts -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
