@@ -20,23 +20,26 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/started_projects">Started Projs<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/completed_projects">Completed Projects</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Orginizers
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <!-- maybe make for each Orginizer, get the id and then siplay a info page for each  Orginizer-->
-                        <a class="dropdown-item" href="#">Anthony Aquino-Lopez</a>
-                        <a class="dropdown-item" href="#">Henok</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="/logout">logout</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Orginizers
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <!-- maybe make for each Orginizer, get the id and then siplay a info page for each  Orginizer-->
+                            <a class="dropdown-item" href="#">Anthony Aquino-Lopez</a>
+                            <a class="dropdown-item" href="#">Henok</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/started_projects">Started Projs<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/completed_projects">Completed Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/_projects">create new Project idea</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="/logout">logout</a>
                         </li>
                     </ul>
                     
@@ -49,7 +52,7 @@
                         <h1 id=main-title>2DP3</h1>
                     </div>
                     <div class="p-4">
-                        <p id="slogan">Join, meet, and collaborate here to create your open source prototype and help others as well.</p>
+                        <p id="slogan">Join, meet, and collaborate here to create your open source <i>Python</i> prototype and help others as well.</p>
                     </div>
                 </div>    
             </div>
@@ -60,22 +63,20 @@
                     <div class="col-lg-5 mx-auto">
                         <h3>
                             this is an open source group that invites people that code in python to come out, network and just
-                            have a good time collaboration with others. We welcome all level excperienced coders. This group 
-                            meets up every __ days to work on projects. A party is hosted by us as well, a week after every 
-                            project to give feed back on the previous week. 
+                            have a good time collaboration with others. We welcome all level excperienced coders, and recriuters. This group 
+                            meets up every 2 weeks to work on projects. Bring your laptop, bring a friend, dont let this chance slither away.
                         </h3>
                     </div>
                 </div>
                 <!-- organizers info -->
                 <div class="fluid-container white-bg">
+                    <div class="d-flex justify-content-center">
+                        <h2>Organizers</h2>
+                    </div>
                     <div class="row ">
-                        <div class="col-md-1 mx-auto white-bg">
-                            <h2>Organizers</h2>
-                        </div>
                         <!-- organizers cards -->
                         <div class="row">
-                            <!-- code not broken but could use some work nvm I got that shit -->
-                            <div class="col-lg-3 ml-5 mr-5 col-md-4 col-sm-6 mb-4 mx-auto hover-animate">
+                            <div class="col-lg-4 ml-5 mr-5 col-md-4 col-sm-6 mb-4 mx-auto hover-animate">
                                 <div class="card shadow border-o h-100">
                                     <a href="#">
                                         <img src="{% static 'img/code2.jpg' %}" alt="one of the organizers" class="img-fluid card-img-top">
@@ -89,7 +90,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 ml-5 mr-5 col-md-4 col-sm-6 mb-4 mx-auto hover-animate">
+                            <div class="col-lg-4 ml-5 mr-5 col-md-4 col-sm-6 mb-4 mx-auto hover-animate">
                                 <div class="card shadow border-o h-100">
                                     <a href="#">
                                         <img src="{% static 'img/code2.jpg' %}" alt="one of the organizers" class="img-fluid card-img-top">
@@ -103,7 +104,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 ml-5 col-md-4 col-sm-6 col-sm-offset-3 mb-4 mx-auto hover-animate">
+                            <div class="col-lg-4 ml-5 col-md-4 col-sm-6 col-sm-offset-3 mb-4 mx-auto hover-animate">
                                 <div class="card shadow border-o h-100">
                                     <a href="#">
                                         <img src="{% static 'img/code2.jpg' %}" alt="one of the organizers" class="img-fluid card-img-top">
@@ -112,19 +113,18 @@
                                         <a href="#" class="text-uppercase text-muted text-sm letter-spacing-2">Anthony Aquino-Lopez</a>
                                         <h5 class="my-2"></h5>
                                         <p class="my-2 text-muted text-sm">Skater turned Full stack developer who loves to code in python.
-                                            graduated from coding dojo in 2019 and have been hacking ever since!   
+                                             I graduated from coding dojo in 2019 and have been hacking since 2016!   
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <!-- if the code is broken... its between this and the previous comment  -->
                         </div>
                     </div>
                 </div>
             </section>
             <!-- previous projects slider -->
             <div class="fluid-container text-center my-3 white-bg">
-                <h3>Previous porjects we have worked on</h3>
+                <h3>Previous projects we have worked on</h3>
                 <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
                     <div class="carousel-inner w-100" role="listbox">
                         <div class="carousel-item row no-gutters active">
@@ -159,7 +159,7 @@
                 <div class="d-flex flex-nowrap selectable-cards" >
                     <!-- this is one selectable card with a slide up effect -->
                     {% for project in final_project_arr %}
-                    <h1>{{project.id}}</h1>
+                    <!-- <h1>{{project.id}}</h1> -->
                     <div class="card card-body select-card">
                             <div class="overlay">
                                 <div class="text">

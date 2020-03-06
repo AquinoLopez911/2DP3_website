@@ -5,37 +5,33 @@ import bcrypt
 import datetime
 import random
 
-
+# if no id is the session, user will be redirected to login page
+#
+# the home page has 4 "cards" at the bottom of the page
+# the 4 cards require unique Projects from the DB to be passed to each
 def home_page(request):
     if 'id' not in request.session:
         return redirect('/login')
     else:
-        #find all unstarted projects
-        #ex: obj1  obj4  obj6  obj7  obj9
+        #find all unstarted projects from the DB
         not_started_projects = Project.objects.filter(started="False")
-        print(not_started_projects)
 
         #number of unstarted projects
-        # 5
         number_of_projects = not_started_projects.count()
 
-        #get 4 random id of unstarted projects from the DB
-        # arr to hold location of project in not_started_projects arr
-        #ex: obj1 obj9 obj6 obj4 
+        #arr to hold the 4 random projects to be sent to the cards in the front end 
         final_project_arr = []
 
-        # need 4 unique ids
+        # adding 4 unique Projects to final_project_arr
         while(len(final_project_arr) < 4):
-            # randomly generated number  0 - number_of_projects - 1
+            #  generate random number in the range of:  0 - number_of_projects - 1
             project_index = random.randint(0, number_of_projects - 1)
 
-            # check if object at index "project_index" from not_started_projects arr is in the final_project_arr
+            # checks if object at index "project_index" from not_started_projects arr is in the final_project_arr
             # adds object to final_project_arr if not already added
             if(not_started_projects[project_index] not in final_project_arr):
                 final_project_arr.append(not_started_projects[project_index])
     
-
-
         context = {
 
             'final_project_arr' : final_project_arr,
@@ -54,41 +50,68 @@ def register(request):
         
 
 def login_action(request):
+    # send the users submited login post to login_validator
     login_errors = User.objects.login_validator(request.POST)
+
+    # if erros are found in login_errors, add each on to messages.error to be passed to the front end
     if len(login_errors) > 0:
         for key, value in login_errors.items():
             messages.error(request, value)
-        return redirect('/')   
-    request.session['id'] = User.objects.filter(email = request.POST['email'].lower())[0].id
-    request.session['name'] = User.objects.filter(email = request.POST['email'].lower())[0].name
+        # redirects to login page and displays message.errors
+        return redirect('/login') 
+
+
+    # if no errors were found, query for the user with the email entered
+
+    # OLD WAY
+    # I MADE TWO CALLS TO DB 
+    # request.session['id'] = User.objects.filter(email = request.POST['email'].lower())[0].id
+    # request.session['name'] = User.objects.filter(email = request.POST['email'].lower())[0].name
+
+    # NEW WAY
+    # ONE CALL TO DB SAVED TO VARIABLE
+    user = User.objects.filter(email = request.POST['email'].lower())[0]
+
+    request.session['id'] = user.id
+    request.session['name'] = user.name
+
+
+    # redirect to home route
     return redirect('/')
 
 
 def register_action(request):
-    if request.POST:
-        print(request.POST)
-        errors_from_Validator = User.objects.registration_validator(request.POST)
-        if len(errors_from_Validator) > 0:
-            for key, value in errors_from_Validator.items():
-                messages.error(request, value)
-            return redirect('/register')
-        else:
-            hash1 = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
+    # send the users submited login post to registration_validator
+    errors_from_Validator = User.objects.registration_validator(request.POST)
+     # if erros are found in login_errors, add each on to messages.error to be passed to the front end
+    if len(errors_from_Validator) > 0:
+        for key, value in errors_from_Validator.items():
+            messages.error(request, value)
+        # redirects to registration page and displays message.errors
+        return redirect('/register')
+    # if no errors are found in errors_from_Validator, 
+    else:
+        # create hash with password given by regerestring user
+        hash1 = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
 
-            user = User.objects.create(name=request.POST['name'], alias=request.POST['username'], email=request.POST['email'].lower(), password=hash1.decode() )
-            print(f"created user: {user}")
+        # add a new user to the User Table in DB 
+        user = User.objects.create(name=request.POST['name'], alias=request.POST['username'], email=request.POST['email'].lower(), password=hash1.decode() )
+        print(f"created user: {user}")
 
-            request.session['id'] = user.id
+        # adding user ID to session 
+        request.session['id'] = user.id
 
-            user = User.objects.get(id = request.session['id'])
-            return redirect('/')
+        # redirecting to home route
+        return redirect('/')
 
 def logout(request):
+    # clears session (ID)
     request.session.clear()
     return redirect('/')
     
-# loads the page with the specific project info
+# renders project_info.html with the specific project info
 def project_description(request, number):
+    # query for the project with an ID that matches the number parameter 
     project_displayed = Project.objects.get(id=number)
 
     context = {
@@ -96,17 +119,22 @@ def project_description(request, number):
     }
     return render(request, 'project_info.html', context)
 
-# marks specific project as started
+
+# marks specific project as started and renders project_info.html
 def start_project(request, number):
+    # query for the project with an ID that matches the number parameter 
     project_displayed = Project.objects.get(id=number)
 
+    #change Projects 'started' property from false to true
     project_displayed.started = True
 
+    # save changes
     project_displayed.save()
 
     context = {
         'project' : project_displayed
     }
+
     return render(request, 'project_info.html', context)
 
 

@@ -3,7 +3,7 @@ import re
 import bcrypt
 from datetime import date
 
-# Create your models here.
+# Create models here.
 class UserManager(models.Manager):
     def registration_validator(self, post_data):
         EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
@@ -30,6 +30,8 @@ class UserManager(models.Manager):
         print(errors)
         return errors
 
+
+    # return errors dictionary
     def login_validator(self, post_data):
         errors = {}
         #get a list of all users with the email entered (shoukld only be one)

@@ -1,4 +1,21 @@
-ip address http://172.17.100.214:8000/
+** MORE DOCUMENTATION **
+* add a emailing service for users who forgot password
 
-github button to initialize project on git and personaly to start project on their acocunt
+* create a template and form for user to create a new Project idea
+* create a Manager for the Project table in DB
+
+* refactor cards for small devices( cards get too skinny on smaller screens/devices)
+
+* load completed projects to the img carousel for users to click on and view the projects info
+
+* fix orginizer rows to disply the main orginizer info above the co-orginizers info on col.sm
+
+* find co-orginizer(s)
+
+
+
+
+
+
+
 
