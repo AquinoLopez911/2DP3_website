@@ -1,0 +1,90 @@
+.white-bg {
+    background-color: #fff;
+}
+.jumbotron {
+    background-image: url('../img/cartoonCode.jpg');
+    background-size: cover;
+    margin-bottom: 0;
+}
+.jumbotron h1{
+    font-weight: 200;
+    font-size: 120px;
+    color: white;
+    
+}
+.jumbotron p {
+    color: whitesmoke ;
+    font-size: 25px;
+}
+.vertical-center {
+    display: flex;
+    text-align: center;
+}
+
+.about-me {
+    margin-top: -40px;
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    /* needs better font */
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+} 
+
+.about-me h1, p, h2{
+    padding: 20px;
+    /* needs better font */
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+} 
+
+
+
+#select-card-label {
+    color: antiquewhite
+}
+
+.card {
+    border: 0!important;
+    margin: 0 1rem 0 1rem!important;
+}
+
+.selectable-cards {
+    padding: 3rem 3rem 0 3rem;
+    
+}
+
+.select-card {
+    background-color: #485043;
+    height: 43rem;
+    border-radius: 10px;
+}
+
+.overlay {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: whitesmoke;
+    overflow: hidden;
+    width: 100%;
+    height: 7rem;
+    transition: .2s ease;
+}
+.select-card:hover .overlay {
+    height: 100%;
+}
+
+.card-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
+.card-img img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}

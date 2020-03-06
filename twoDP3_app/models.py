@@ -9,6 +9,7 @@ class UserManager(models.Manager):
         EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
         errors = {}
         user_with_email = User.objects.filter(email = post_data['email'])
+        twoDP3_pin = "91145"
 
         if len(post_data['name']) < 2:
             errors['name'] = "name nust be atleast 2 characters"
@@ -24,6 +25,8 @@ class UserManager(models.Manager):
             errors['password_length'] = "password must be atleast 8 characters"
         if post_data['password'] != post_data['confirm'] :
             errors['password_match'] = "passwords dont match"
+        if post_data['pin'] != twoDP3_pin :
+            errors['invalid_pin'] = "Invalid pin entered"    
         print(errors)
         return errors
 
@@ -93,18 +96,21 @@ class User(models.Model):
     objects = UserManager()
 
     def __repr__(self):
-        return f"User object: {self.id}, name: {self.name}, email: {self.email}, password: {self.password}"
+        return f"User object: {self.id}, name: {self.name}, email: {self.email}, password: {self.password}, project ideas: {self.projects.all()}"
 
 
 
 
 class Project(models.Model):
+    creator = models.ForeignKey(User, related_name='projects', on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     description = models.TextField()
     location = models.CharField(max_length=255, null='True')
+    complete = models.BooleanField(default=False)
+    started = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __repr__(self):
-        return f"Book object: {self.id}: title is {self.title}, {self.description}"
+        return f"{self.id}"
 

@@ -1,0 +1,30 @@
+h1 {
+    color: #ddd;
+}
+
+h5 {
+    color: #ddd;
+    margin: 5px;
+}
+.log-body {
+    background-image: url('../img/cartoonCode.jpg');
+    background-size: cover;
+    background-color: #449955;
+    height: 1200px;
+    padding: 1%;
+}
+.reg-body {
+    background-image: url('../img/cartoonCode.jpg');
+    background-size: cover;
+    background-color: #449955;
+    height: 1200px;
+    padding: 1%;
+}
+
+#title {
+    font-size: 150px;
+}
+
+ul {
+    list-style-type: none;
+}

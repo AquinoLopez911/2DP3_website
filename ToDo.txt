@@ -1,0 +1,4 @@
+ip address http://172.17.100.214:8000/
+
+github button to initialize project on git and personaly to start project on their acocunt
+

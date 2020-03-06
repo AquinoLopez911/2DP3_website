@@ -31,10 +31,11 @@
                         <form action='register_action'  class=" col-sm-9 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 form-signin" method="POST">
                             {% csrf_token %}
                                 <input type="text" name="name" id="inputName" class="form-control form-group" placeholder="Full Name" required autofocus>
-                                <input type="text" name="username" id="inputName" class="form-control form-group" placeholder="username" required autofocus>
+                                <input type="text" name="username" id="inputUserName" class="form-control form-group" placeholder="username" required autofocus>
                                 <input type="email" name="email" id="inputEmail" class="form-control form-group" placeholder="email" required autofocus>
                                 <input type="password" name="password" id="inputPassword" class="form-control form-group" placeholder="password" required autofocus>
                                 <input type="password" name="confirm" id="ConfirminputPassword" class="form-control form-group" placeholder="confirm password" required autofocus>
+                                <input type="text" name="pin" id="inputPin" class="form-control form-group" placeholder="2DP3 pin" required autofocus>
                                 <button class="btn btn-lg btn-success btn-block btn-signin" type="submit">enter</button>
                         </form>
                         <h5>Already a member?<a href="/login">click here</a></h5>

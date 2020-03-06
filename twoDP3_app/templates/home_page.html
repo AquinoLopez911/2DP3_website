@@ -14,17 +14,17 @@
         <div class="fluid-container">
             <!-- navbar -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                <a class="navbar-brand" href="#">2DP3</a>
+                <a class="navbar-brand" href="/">2DP3</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">About<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/started_projects">Started Projs<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Projects</a>
+                        <a class="nav-link" href="/completed_projects">Completed Projects</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -32,8 +32,8 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <!-- maybe make for each Orginizer, get the id and then siplay a info page for each  Orginizer-->
-                        <a class="dropdown-item" href="#">Organizer 1</a>
-                        <a class="dropdown-item" href="#">Organizer 1</a>
+                        <a class="dropdown-item" href="#">Anthony Aquino-Lopez</a>
+                        <a class="dropdown-item" href="#">Henok</a>
                     </li>
                     <li class="nav-item">
                             <a class="nav-link" href="/logout">logout</a>
@@ -109,10 +109,10 @@
                                         <img src="{% static 'img/code2.jpg' %}" alt="one of the organizers" class="img-fluid card-img-top">
                                     </a>
                                     <div class="card-body ">
-                                        <a href="#" class="text-uppercase text-muted text-sm letter-spacing-2">Main Organizer name</a>
+                                        <a href="#" class="text-uppercase text-muted text-sm letter-spacing-2">Anthony Aquino-Lopez</a>
                                         <h5 class="my-2"></h5>
-                                        <p class="my-2 text-muted text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                             Illo voluptatibus impedit nulla minima debitis, similique quis nam reiciendis?
+                                        <p class="my-2 text-muted text-sm">Skater turned Full stack developer who loves to code in python.
+                                            graduated from coding dojo in 2019 and have been hacking ever since!   
                                         </p>
                                     </div>
                                 </div>
@@ -128,16 +128,16 @@
                 <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
                     <div class="carousel-inner w-100" role="listbox">
                         <div class="carousel-item row no-gutters active">
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/333/fff?text=project 1"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/333?text=project 2"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/333?text=project 3"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/333/fff?text=project 4"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/900/fff?text=project 1"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/fb0/fff?text=project 2"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/ff0/fff?text=project 3"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/0f0/fff?text=project 4"></div>
                         </div>
                         <div class="carousel-item row no-gutters">
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280?text=project 5"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/555?text=project 6"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/333/fff?text=project 7"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/bbb?text=project 8"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/090/fff?text=project 5"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/00f/fff?text=project 6"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/808/fff?text=project 7"></div>
+                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/b0f/fff?text=project 8"></div>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
@@ -158,7 +158,8 @@
                 <!-- no more than 4 cards on screen at once untill i find a way to give the cards specific heights for each window size  -->
                 <div class="d-flex flex-nowrap selectable-cards" >
                     <!-- this is one selectable card with a slide up effect -->
-                    {% for card in cards %}
+                    {% for project in final_project_arr %}
+                    <h1>{{project.id}}</h1>
                     <div class="card card-body select-card">
                             <div class="overlay">
                                 <div class="text">
