@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import *
+from .models import Project, User
 from django.contrib import messages
 import bcrypt
 import datetime
