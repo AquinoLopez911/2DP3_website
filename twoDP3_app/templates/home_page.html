@@ -7,6 +7,8 @@
         <title>2DP3</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         {% load static %}
+        <script src="{% static 'js/homePage_functionality.js' %}"></script>
+
         <link rel="stylesheet" href="{% static 'css/home.css' %}">
     </head>
     <body style="background-color: #485043;">
@@ -14,23 +16,23 @@
         <div class="fluid-container">
             <!-- navbar -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                <a class="navbar-brand" href="/">2DP3</a>
+                <a class="navbar-brand active" href="/">2DP3</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="abcdefghijkarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="abcdefghijkarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Orginizers
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <!-- maybe make for each Orginizer, get the id and then siplay a info page for each  Orginizer-->
+                                <!-- maybe make for each Orginizer, get the id and then siplay a info page for each Orginizer-->
                             <a class="dropdown-item" href="#">Anthony Aquino-Lopez</a>
                             <a class="dropdown-item" href="#">Henok</a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/started_projects">Started Projs<span class="sr-only">(current)</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/started_projects">Started Projs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/completed_projects">Completed Projects</a>
@@ -38,21 +40,24 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/_projects">create new Project idea</a>
                         </li>
-                        <li class="nav-item">
-                                <a class="nav-link" href="/logout">logout</a>
-                        </li>
                     </ul>
-                    
+                    <div>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                    <a class="nav-link" href="/logout">logout</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
             <!-- main content  -->
             <div class="jumbotron vertical-center">
                 <div class="container">
                     <div class="p-3">
-                        <h1 id=main-title>2DP3</h1>
+                        <h1 id="abcdefghijk-title">2DP3</h1>
                     </div>
                     <div class="p-4">
-                        <p id="slogan">Join, meet, and collaborate here to create your open source <i>Python</i> prototype and help others as well.</p>
+                        <p id="abcdefghijkan">Join, meet, and collaborate here to create your open source <i>Python</i> prototype and help others as well.</p>
                     </div>
                 </div>    
             </div>
@@ -73,16 +78,17 @@
                     <div class="d-flex justify-content-center">
                         <h2>Organizers</h2>
                     </div>
-                    <div class="row ">
+                    <div class="container-fluid">
                         <!-- organizers cards -->
+                        <!-- use a facebook photo for consistant sizing || set a size with css -->
                         <div class="row">
-                            <div class="col-lg-4 ml-5 mr-5 col-md-4 col-sm-6 mb-4 mx-auto hover-animate">
-                                <div class="card shadow border-o h-100">
+                            <div class="col-lg-3 ml-5 mr-5 col-md-4 col-sm-6 mb-4 mx-auto card-wrapper" onmouseover="changeBG(this)" onmouseout="defaultBG(this)">
+                                <div class="card border-o h-100" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">
                                     <a href="#">
                                         <img src="{% static 'img/code2.jpg' %}" alt="one of the organizers" class="img-fluid card-img-top">
                                     </a>
                                     <div class="card-body">
-                                        <a href="#" class="text-uppercase text-muted text-sm letter-spacing-2">co-Organizer name</a>
+                                        <a href="#" class="text-uppercase text-muted text-sm letter-spacing-2"><b>co-Organizer name</b></a>
                                         <h5 class="my-2"></h5>
                                         <p class="my-2 text-muted text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                                              Illo voluptatibus impedit nulla minima debitis, similique quis nam reiciendis?
@@ -90,13 +96,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 ml-5 mr-5 col-md-4 col-sm-6 mb-4 mx-auto hover-animate">
-                                <div class="card shadow border-o h-100">
+                            <div class="col-lg-3 ml-5 mr-5 col-md-4 col-sm-6 mb-4 mx-auto card-wrapper" onmouseover="changeBG(this)" onmouseout="defaultBG(this)">
+                                <div class="card border-o h-100" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">
                                     <a href="#">
                                         <img src="{% static 'img/code2.jpg' %}" alt="one of the organizers" class="img-fluid card-img-top">
                                     </a>
                                     <div class="card-body">
-                                        <a href="#" class="text-uppercase text-muted text-sm letter-spacing-2">Co-Organizer name</a>
+                                        <a href="#" class="text-uppercase text-muted text-sm letter-spacing-2"><b>co-Organizer name</b></a>
                                         <h5 class="my-2"></h5>
                                         <p class="my-2 text-muted text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                                              Illo voluptatibus impedit nulla minima debitis, similique quis nam reiciendis?
@@ -104,13 +110,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 ml-5 col-md-4 col-sm-6 col-sm-offset-3 mb-4 mx-auto hover-animate">
-                                <div class="card shadow border-o h-100">
+                            <div class="col-lg-3 ml-5 col-md-4 col-sm-6 col-sm-offset-3 mb-4 mx-auto card-wrapper" onmouseover="changeBG(this)" onmouseout="defaultBG(this)">
+                                <div class="card border-o h-100" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">
                                     <a href="#">
-                                        <img src="{% static 'img/code2.jpg' %}" alt="one of the organizers" class="img-fluid card-img-top">
+                                        <img src="{% static 'img/anthonyIMG.jpg' %}" alt="one of the organizers" class="img-fluid card-img-top">
                                     </a>
                                     <div class="card-body ">
-                                        <a href="#" class="text-uppercase text-muted text-sm letter-spacing-2">Anthony Aquino-Lopez</a>
+                                        <a href="#" class="text-uppercase text-muted text-sm letter-spacing-2"><b>Anthony Aquino-Lopez</b></a>
                                         <h5 class="my-2"></h5>
                                         <p class="my-2 text-muted text-sm">Skater turned Full stack developer who loves to code in python.
                                              I graduated from coding dojo in 2019 and have been hacking since 2016!   
@@ -122,22 +128,49 @@
                     </div>
                 </div>
             </section>
-            <!-- previous projects slider -->
+            <!-- previous projects slider "carousel" -->
             <div class="fluid-container text-center my-3 white-bg">
                 <h3>Previous projects we have worked on</h3>
-                <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+                <div id="abcdefghijkpeCarousel" class="carousel slide w-100" data-ride="carousel">
                     <div class="carousel-inner w-100" role="listbox">
                         <div class="carousel-item row no-gutters active">
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/900/fff?text=project 1"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/fb0/fff?text=project 2"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/ff0/fff?text=project 3"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/0f0/fff?text=project 4"></div>
+                            <div class="col-3 float-left">
+                                <a href="/">
+                                    <img class="img-fluid" src="http://placehold.it/350x280/900/fff?text=project 1">
+                                </a>
+                            </div>
+                            <div class="col-3 float-left">
+                                <a href="/">
+                                    <img class="img-fluid" src="http://placehold.it/350x280/fb0/fff?text=project 2">
+                                </a>
+                            </div>
+                            <div class="col-3 float-left">
+                                <a href="/">
+                                    <img class="img-fluid" src="http://placehold.it/350x280/ff0/fff?text=project 3">
+                                </a>
+                            </div>
+                            <div class="col-3 float-left">
+                                <a href="/">
+                                    <img class="img-fluid" src="http://placehold.it/350x280/0f0/fff?text=project 4"></div>
+                                </a>
                         </div>
                         <div class="carousel-item row no-gutters">
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/090/fff?text=project 5"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/00f/fff?text=project 6"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/808/fff?text=project 7"></div>
-                            <div class="col-3 float-left"><img class="img-fluid" src="http://placehold.it/350x280/b0f/fff?text=project 8"></div>
+                            <div class="col-3 float-left">
+                                <a href="/">
+                                    <img class="img-fluid" src="http://placehold.it/350x280/090/fff?text=project 5"></div>
+                                </a>
+                            <div class="col-3 float-left">
+                                <a href="/">
+                                    <img class="img-fluid" src="http://placehold.it/350x280/00f/fff?text=project 6"></div>
+                                </a>
+                            <div class="col-3 float-left">
+                                <a href="/">
+                                    <img class="img-fluid" src="http://placehold.it/350x280/808/fff?text=project 7"></div>
+                                </a>
+                            <div class="col-3 float-left">
+                                <a href="/">
+                                    <img class="img-fluid" src="http://placehold.it/350x280/b0f/fff?text=project 8"></div>
+                                </a>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
@@ -154,16 +187,18 @@
                 we could add some hover animation to it that gives them more height. This feature could be used to select the random project for the week
                 have ppl log in and say they're present and send their name. for every person there, make a card-->
             <div class="container-fluid text-center" >
-                <h2 id="select-card-label"> select a random Project</h2>
+                <h2 id="abcdefghijkct-card-label"> select a random Project</h2>
                 <!-- no more than 4 cards on screen at once untill i find a way to give the cards specific heights for each window size  -->
                 <div class="d-flex flex-nowrap selectable-cards" >
                     <!-- this is one selectable card with a slide up effect -->
                     {% for project in final_project_arr %}
-                    <!-- <h1>{{project.id}}</h1> -->
+                    <h1>{{project.id}}</h1>
                     <div class="card card-body select-card">
                             <div class="overlay">
                                 <div class="text">
-                                    <a class="card-img" href="/projects/{{card.id}}"><img src="{% static 'img/cardBackgroud.jpg' %}" alt=" snak edesign"></a>
+                                    <a class="card-img" href="/projects/{{project.id}}">
+                                        <img src="{% static 'img/cardBackgroud.jpg' %}" alt=" snake edesign">
+                                    </a>
                                 </div>
                             </div>
                         </div>

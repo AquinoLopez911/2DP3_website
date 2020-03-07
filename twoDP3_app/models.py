@@ -88,6 +88,7 @@ class UserManager(models.Manager):
 #         print(errors)
 #         return errors
 
+
 class User(models.Model):
     name = models.CharField(max_length=255)
     alias = models.CharField(max_length=255)

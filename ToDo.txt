@@ -1,16 +1,36 @@
 ** MORE DOCUMENTATION **
-* add a emailing service for users who forgot password
+* find co-orginizer(s)
 
-* create a template and form for user to create a new Project idea
-* create a Manager for the Project table in DB
 
-* refactor cards for small devices( cards get too skinny on smaller screens/devices)
+** FRONT END **
+
+* (1)add profiles template for users
+
+* (2)create a template for emailing service 
+
+* (3)create a template and form for user to create a new Project idea
+
+** refactor cards for small devices( cards get too skinny on smaller screens/devices)
+** refactor cards for touch devices 
+    -all should be displayed
+    -when one is tapped, the rest slide down
+
+** add route to imgs in carousel for users to click on and view the projects info
+
+** fix orginizer rows to disply the main orginizer info above the co-orginizers info on col.sm
+
+** update every template except for home_page.html
+
+
+** BACK END **
+
+* (1)add Profile page ROUTE for users to view their "things"
+
+* (2)add a emailing service for users who forgot password
+
+* (3)create a ProjectManager object for the Project table in DB 
 
 * load completed projects to the img carousel for users to click on and view the projects info
-
-* fix orginizer rows to disply the main orginizer info above the co-orginizers info on col.sm
-
-* find co-orginizer(s)
 
 
 

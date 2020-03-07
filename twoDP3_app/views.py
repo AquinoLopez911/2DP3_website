@@ -5,6 +5,9 @@ import bcrypt
 import datetime
 import random
 
+# RENDER FUNCTIONS
+
+# renders home_page.html
 # if no id is the session, user will be redirected to login page
 #
 # the home page has 4 "cards" at the bottom of the page
@@ -40,15 +43,52 @@ def home_page(request):
         return render(request, 'home_page.html', context)
 
 
-
+# renders 'login.html'
 def login(request):
     return render(request, 'login.html')
 
+# renders 'Register.html'
 def register(request):
     return render(request, 'register.html')
+    
+
+# renders project_info.html with the specific project info
+def project_description(request, number):
+    # query for the project with an ID that matches the number parameter 
+    project_displayed = Project.objects.get(id=number)
+
+    context = {
+        'project' : project_displayed
+    }
+    return render(request, 'project_info.html', context)
+
+def started_projects(request):
+    startedProjects = Project.objects.filter(started = True)
+   
+
+    context = {
+        'startedProjects' : startedProjects
+    }
+
+    return render(request, 'started_projects.html', context)
+
+    
+
+def completed_projects(request):
+    completedProjects = Project.objects.filter(complete = True)
+   
+    context = {
+        'completedProjects' : completedProjects
+    }
+
+    return render(request, 'completed_projects.html', context) 
 
         
 
+
+# REDIRECT FUNCTIONS
+
+# verifies the user attempting to login
 def login_action(request):
     # send the users submited login post to login_validator
     login_errors = User.objects.login_validator(request.POST)
@@ -79,7 +119,7 @@ def login_action(request):
     # redirect to home route
     return redirect('/')
 
-
+# registers a new user if form post is valid
 def register_action(request):
     # send the users submited login post to registration_validator
     errors_from_Validator = User.objects.registration_validator(request.POST)
@@ -104,23 +144,14 @@ def register_action(request):
         # redirecting to home route
         return redirect('/')
 
+# logs user out and redirects to login
 def logout(request):
     # clears session (ID)
     request.session.clear()
-    return redirect('/')
-    
-# renders project_info.html with the specific project info
-def project_description(request, number):
-    # query for the project with an ID that matches the number parameter 
-    project_displayed = Project.objects.get(id=number)
-
-    context = {
-        'project' : project_displayed
-    }
-    return render(request, 'project_info.html', context)
+    return redirect('/login')
 
 
-# marks specific project as started and renders project_info.html
+# marks specific project as started and renders 'project_info.html'
 def start_project(request, number):
     # query for the project with an ID that matches the number parameter 
     project_displayed = Project.objects.get(id=number)
@@ -136,25 +167,3 @@ def start_project(request, number):
     }
 
     return render(request, 'project_info.html', context)
-
-
-def started_projects(request):
-    startedProjects = Project.objects.filter(started = True)
-   
-
-    context = {
-        'startedProjects' : startedProjects
-    }
-
-    return render(request, 'started_projects.html', context)
-
-    
-
-def completed_projects(request):
-    completedProjects = Project.objects.filter(complete = True)
-   
-    context = {
-        'completedProjects' : completedProjects
-    }
-
-    return render(request, 'completed_projects.html', context) 
